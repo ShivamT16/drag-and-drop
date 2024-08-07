@@ -1,10 +1,16 @@
+import { Draggable } from "./Components/Draggable"
+
 export const Sidebar = () => {
     return(
-        <div>
+        <div style={{textAlign: "left", padding: "0rem 2rem",borderRight: "2px solid black"}} >
 
          <h2>All Details</h2>
          <h3>BASIC</h3>
-         
+
+         <Draggable id="draggable">
+         <p>Text</p>
+    </Draggable>
+    
          <p>Text</p>   
          <p>Text Area</p>   
          <p>Number</p>   
