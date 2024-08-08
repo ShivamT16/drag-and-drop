@@ -16,12 +16,11 @@ export const MainProvider = ({children}) => {
     const handleInput = (e) => {
      const name = e.target.name;
      const value = e.target.value;
-    //  console.log({[name]:value})
      setInput({ ...input, [name]: value });
     }
     const handlePreview = () => {
         const newRecord = {...input}
-        setRecord([...record, newRecord])
+        setRecord([...record, newRecord]);
     }
 
     return(

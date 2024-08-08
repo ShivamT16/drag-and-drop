@@ -14,7 +14,7 @@ export const Droppable = (props) => {
       {props.items.map((item, idx) => (
         <div key={`${item}-${idx}`} > 
             {item} 
-            <span onClick={() => setcartItems(cartItems.filter((i,_index) => _index !== idx ))} >X</span>
+            <span style={{cursor: "pointer"}} onClick={() => setcartItems(cartItems.filter((i,_index) => _index !== idx ))} >X</span>
         </div>
       ) ) 
       }
