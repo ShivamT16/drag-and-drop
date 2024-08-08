@@ -1,3 +1,9 @@
 .App {
   text-align: center;
 }
+.sidebar-Item{
+  font-size: larger;
+  padding: 0rem 2rem;
+  line-height: 2rem;
+  border-right: 2px solid black ;
+}

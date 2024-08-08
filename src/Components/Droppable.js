@@ -12,16 +12,16 @@ export const Droppable = (props) => {
   };
 
   return (
-    <ul ref={setNodeRef}>
-      <div style={{border: "2px solid black", height: "max-content"}} >
+    <div ref={setNodeRef}>
+      <div >
       {props.items.map((item, idx) => (
         <div key={`${item}-${idx}`} > 
-            {item}
+            {/* {idx} */}
+            {item} 
         </div>
       ) ) 
       }
       </div>
-    </ul>
+    </div>
   );
 }
-  

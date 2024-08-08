@@ -1,32 +1,52 @@
-import { useState } from 'react';
+import { useContext } from 'react';
 import { DndContext } from '@dnd-kit/core';
 import './App.css';
 import { Droppable } from './Components/Droppable';
 import { Draggable } from './Components/Draggable';
+import { MainContext } from './Components/MainContext';
 
 function App() {
-   const sides = ["Text",'Text Area', "Number", "Date", "Date and Time", "Dropdown", "Yes/No", "Multi-select dropdown"]
-   const [cartItems, setcartItems] = useState(["Test"])
-
+   const {cartItems, setcartItems} = useContext(MainContext)
    const addItems = (event) => {
       const newItem = event.active.data.current?.title[1];
       const temp = [...cartItems];
       temp.push(newItem);
-      setcartItems(temp)
+      setcartItems(temp) 
    }
   
   return (
     <DndContext onDragEnd={addItems} >
-    <div style={{display: "flex", border: "2px solid black"}} >
-    <div style={{ border: "2px solid black"}}>
+
+    <div style={{display: "flex"}} >
+    <div style={{padding: "0rem 1rem"}}>
       <h2>Sides</h2>
-      <ul>
-      {sides.map((item) => <Draggable key={item} > {item} </Draggable> )}
-      </ul>
+      <div className='sidebar-Item'>
+
+      Input
+      <Draggable key={"Text"} > <input type="text" placeholder='Text' /> </Draggable>
+      Textarea
+      <Draggable key={"Textarea"} > <textarea placeholder='Textarea' /> </Draggable>
+      Number
+      <Draggable key={"Number"} > <input type="number" placeholder='Number' /> </Draggable>
+      Date
+      <Draggable key={"Date"} > <input type="date" /> </Draggable>
+      Date & Time
+      <Draggable key={"Time"} > <input type="datetime-local" /> </Draggable>
+      Checkbox
+      <Draggable key={"Checkbox"} > <input type="checkbox" /> </Draggable>
+      Email
+      <Draggable key={"Email"} > <input type="email" placeholder='Email' /> </Draggable>
+      Dropdown
+      <Draggable key={"Dropdown"} > <select> <option>Select Dropdown</option> </select> </Draggable>
+      Radio Button
+      <Draggable key={"Radio"} > <input type="radio" /> </Draggable>
+
+      </div>
     </div>
-    <div style={{ border: "2px solid black"}}>
+    <div>
       <h2>Section</h2>
-      <Droppable items={cartItems} />
+      <p>+ Drag any field or Click on sides to add a new field below</p>
+      { cartItems.length > 0 && <Droppable items={cartItems} />}
     </div>
 
     </div>
