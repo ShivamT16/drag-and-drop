@@ -9,11 +9,8 @@ export const Draggable = (props) => {
   });
 
   const style = {
-    // Outputs `translate3d(x, y, 0)`
     transform: CSS.Translate.toString(transform),
   };
-
-//   console.log(props)
 
   return (
     <div ref={setNodeRef} style={style} {...listeners} {...attributes}>
